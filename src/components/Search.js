@@ -7,7 +7,7 @@ class Search extends Component {
       <TextInput
         style={styles.inputText}
         placeholder={'Codigo de alarma'}
-        keyboardType="numeric"
+        keyboardType={'phone-pad'}
         onChangeText={this.props.handleText}
         onSubmitEditing={this.props.handleSubmit}
       />

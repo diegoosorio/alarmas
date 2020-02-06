@@ -4,7 +4,8 @@ import {
   View,
   ScrollView,
   StyleSheet,
-  ActivityIndicator} from 'react-native';
+  ActivityIndicator,
+} from 'react-native';
 import Home from './src/containers/Home';
 import Header from './src/components/Header';
 // import Menu from './src/components/Menu';
@@ -18,11 +19,13 @@ import alarmas from './util/data/alarmas.json';
 class App extends Component {
   constructor(props) {
     super(props);
+    // var codigosBuscados = [];
     this.state = {
       alarma: {},
       lista_alarmas: alarmas,
       busqueda: false,
       loading: true,
+      // codigosBuscados: [],
     };
   }
 
@@ -47,6 +50,7 @@ class App extends Component {
   };
 
   handleSubmit = codigo_submit => {
+    console.log(this.state.codigosBuscados);
     var lista_alarmas = this.state.lista_alarmas;
     var result = lista_alarmas.filter(
       alarma =>
@@ -61,6 +65,10 @@ class App extends Component {
         codigo_submit: codigo_submit.nativeEvent.text,
         alarma: result[0],
         busqueda: true,
+        // codigosBuscados: [
+        //   ...this.state.codigosBuscados,
+        //   codigo_submit.nativeEvent.text,
+        // ],
       });
     }
   };
@@ -117,7 +125,7 @@ const styles = StyleSheet.create({
   alarmas: {
     paddingLeft: 10,
     paddingRight: 10,
-    height: '65%',
+    height: '70%',
   },
   titulo: {
     fontSize: 18,
